@@ -135,12 +135,21 @@ public class CovidDataRecyclerViewAdapter extends
         
         public void bind(Table tableRow) {
             boolean expanded = tableRow.isExpanded();
-            imageViewCountry.setBackgroundResource(World.getFlagOf(tableRow.getCountry()));
+            if(tableRow.getCountry().equals("World"))
+            {
+                imageViewCountry.setBackgroundResource(R.drawable.covid_icon);
+                expandableView.setVisibility(View.VISIBLE);
+                tableRow.setCountry("Whole World");
+            }else
+            {
+                imageViewCountry.setBackgroundResource(World.getFlagOf(tableRow.getCountry()));
+                expandableView.setVisibility(expanded ? View.VISIBLE : View.GONE);
+            }
             txtCountryName.setText(tableRow.getCountry());
             txtNewCase.setText(String.format(" New Cases : %s", (TextUtils.isEmpty(tableRow.getNewCases()) ? "-":tableRow.getNewCases() ) ));
             txtNewDeath.setText(String.format(" New Deaths : %s",(TextUtils.isEmpty(tableRow.getNewDeaths()) ? "-":tableRow.getNewDeaths() ) ));
             
-            expandableView.setVisibility(expanded ? View.VISIBLE : View.GONE);
+          
             
             txtActiveCase.setText(String.format("Active Cases : %s",tableRow.getActiveCases()));
             txtSerious.setText(String.format("Serious : %s",tableRow.getSeriousCritical()));

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bnav_today"
+        android:title="@string/bnav_today"
+        android:icon="@drawable/icons8_today_80px"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/bnav_yesterday"
+        android:title="@string/bnav_yesterday"
+        android:icon="@drawable/icons8_day_off_80px"
+        app:showAsAction="ifRoom"
+        />
+</menu>
