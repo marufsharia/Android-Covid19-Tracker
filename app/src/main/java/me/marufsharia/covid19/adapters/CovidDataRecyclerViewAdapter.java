@@ -131,11 +131,13 @@ public class CovidDataRecyclerViewAdapter extends
         public CovidDataViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+    
+            
         }
         
         public void bind(Table tableRow) {
             boolean expanded = tableRow.isExpanded();
-            if(tableRow.getCountry().equals("World"))
+            if(tableRow.getCountry().equals("World") || tableRow.getCountry().equals("Whole World"))
             {
                 imageViewCountry.setBackgroundResource(R.drawable.covid_icon);
                 expandableView.setVisibility(View.VISIBLE);
@@ -148,8 +150,8 @@ public class CovidDataRecyclerViewAdapter extends
             txtCountryName.setText(tableRow.getCountry());
             txtNewCase.setText(String.format(" New Cases : %s", (TextUtils.isEmpty(tableRow.getNewCases()) ? "-":tableRow.getNewCases() ) ));
             txtNewDeath.setText(String.format(" New Deaths : %s",(TextUtils.isEmpty(tableRow.getNewDeaths()) ? "-":tableRow.getNewDeaths() ) ));
-            
-          
+    
+           
             
             txtActiveCase.setText(String.format("Active Cases : %s",tableRow.getActiveCases()));
             txtSerious.setText(String.format("Serious : %s",tableRow.getSeriousCritical()));
@@ -157,6 +159,10 @@ public class CovidDataRecyclerViewAdapter extends
             txtTotalRecovery.setText(String.format("Total Recovered : %s",tableRow.getTotalRecovered()));
             txtTotalTest.setText(String.format("Total Tests : %s",tableRow.getTotalTests()));
             txtTotalCase.setText(String.format("Total Cases : %s",tableRow.getTotalCases()));
+    
+            txtNewCase.setSelected(true);
+            txtNewDeath.setSelected(true);
+            
         }
         
     }

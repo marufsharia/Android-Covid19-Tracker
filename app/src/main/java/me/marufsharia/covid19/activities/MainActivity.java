@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new YesterdayFragment()).commit();
                 break;
             case R.id.nav_setting:
-                Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Setting not implemented yet", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_facebook:
                 String url ="https://m.facebook.com/marufsharia";
